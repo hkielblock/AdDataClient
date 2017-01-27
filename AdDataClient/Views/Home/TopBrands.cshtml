@@ -1,0 +1,39 @@
+﻿<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Click on a heading to sort</p>
+
+<table id="examplehk" class="display" cellspacing="0" style="width:800px">
+    <thead>
+        <tr>
+            <th>Brand Name</th>
+            <th>Brand ID</th>
+            <th>Number of Pages</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Brand Name</th>
+            <th>Brand ID</th>
+            <th>Number of Pages</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in ViewBag.Ads)
+        {
+            <tr>
+                <td>@item.Brand.BrandName</td>
+                <td>@item.Brand.BrandId</td>
+                <td>@item.NumPages</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"> </script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script>
+    $('#examplehk').DataTable({
+        "order": [[2, "desc"], [0, "asc"]]
+    } );
+</script>
